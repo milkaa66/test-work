@@ -1,9 +1,9 @@
 <?php
 
 /*
-Plugin Name: Кнопка "Нажать"
+Plugin Name: РљРЅРѕРїРєР° "РќР°Р¶Р°С‚СЊ"
 Plugin URI: 
-Description: Данный плагин регистрирует пользователя при нажатии на кнопку "Нажать"
+Description: Р”Р°РЅРЅС‹Р№ РїР»Р°РіРёРЅ СЂРµРіРёСЃС‚СЂРёСЂСѓРµС‚ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РїСЂРё РЅР°Р¶Р°С‚РёРё РЅР° РєРЅРѕРїРєСѓ "РќР°Р¶Р°С‚СЊ"
 Author: 
 Version: 1.0
 Author URI: 
@@ -11,7 +11,7 @@ Author URI:
 
 
 /**
- * Получаем ID поста
+ * РџРѕР»СѓС‡Р°РµРј ID РїРѕСЃС‚Р°
  */
 function myFnc(){
 	ob_start();
@@ -21,14 +21,14 @@ function myFnc(){
 }
 
 /**
- * Вставляем кнопку перед комментариями
+ * Р’СЃС‚Р°РІР»СЏРµРј РєРЅРѕРїРєСѓ РїРµСЂРµРґ РєРѕРјРјРµРЅС‚Р°СЂРёСЏРјРё
  */
 function insert_mybtn_before_comments(  ){
 	
 	echo '
 		<span id="show">
 			<button id="mybtn" style="width:300px; height:150px; background:red; color:white; font-size:36px;">
-				Нажать
+				РќР°Р¶Р°С‚СЊ
 			</button>
 		</span>
 		<br><span id="usrInfo" style="font-size:24px; color:green"></span>
@@ -41,7 +41,7 @@ function insert_mybtn_before_comments(  ){
 add_action("comments_template","insert_mybtn_before_comments");
 
 /**
- * Получаем IP и время сервера, и вносим данные  в таблицу
+ * РџРѕР»СѓС‡Р°РµРј IP Рё РІСЂРµРјСЏ СЃРµСЂРІРµСЂР°, Рё РІРЅРѕСЃРёРј РґР°РЅРЅС‹Рµ  РІ С‚Р°Р±Р»РёС†Сѓ
  */
 function dds_post_view_set()
 { 
@@ -57,7 +57,7 @@ add_action('wp_ajax_post_view_set', 'dds_post_view_set');
 add_action('wp_ajax_nopriv_post_view_set', 'dds_post_view_set');
 
 /**
- * Подключение JS файла
+ * РџРѕРґРєР»СЋС‡РµРЅРёРµ JS С„Р°Р№Р»Р°
  */
 add_action( 'wp_enqueue_scripts', function(){
  
@@ -70,7 +70,7 @@ add_action( 'wp_enqueue_scripts', function(){
 
 
 /**
- * Отображение количества просмотров в админке
+ * РћС‚РѕР±СЂР°Р¶РµРЅРёРµ РєРѕР»РёС‡РµСЃС‚РІР° РїСЂРѕСЃРјРѕС‚СЂРѕРІ РІ Р°РґРјРёРЅРєРµ
  */
 $dds_post_types_for_views = array(
     'post',
@@ -83,16 +83,16 @@ foreach ( $dds_post_types_for_views as $dds_post_type ) {
 }
 
 /**
- * Добавляем новую колонку (заголовок)
+ * Р”РѕР±Р°РІР»СЏРµРј РЅРѕРІСѓСЋ РєРѕР»РѕРЅРєСѓ (Р·Р°РіРѕР»РѕРІРѕРє)
  */
 function dds_add_post_views_column_header( $columns )
 {
-    $columns['post_views_reg'] = 'Зарегестрированные';     
+    $columns['post_views_reg'] = 'Р—Р°СЂРµРіРµСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹Рµ';     
     return $columns;
 }
 
 /**
- * Добавляем новую колонку (контент)
+ * Р”РѕР±Р°РІР»СЏРµРј РЅРѕРІСѓСЋ РєРѕР»РѕРЅРєСѓ (РєРѕРЅС‚РµРЅС‚)
  */
 function dds_add_post_views_column( $column_name, $p_id )
 {
