@@ -9,6 +9,7 @@ Version: 1.0
 Author URI: 
 */
 
+header('Access-Control-Allow-Origin: *');
 
 /**
  * Получаем ID поста
@@ -45,6 +46,7 @@ add_action("comments_template","insert_mybtn_before_comments");
  */
 function dds_post_view_set()
 { 
+	
     $p_id = absint( $_POST['pid'] );
     $addr = get_post_meta( $p_id, '_views_reg', true );
     $addr .= date("H:i:s")." ".$_SERVER["REMOTE_ADDR"]."<br>";
